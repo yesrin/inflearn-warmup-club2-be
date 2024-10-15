@@ -2,6 +2,9 @@ package sample.cafekiosk.unit;
 
 import sample.cafekiosk.unit.beverage.Americano;
 import sample.cafekiosk.unit.beverage.Latte;
+import sample.cafekiosk.unit.order.Order;
+
+import java.time.LocalDateTime;
 
 public class CafeKioskRunner {
     public static void main(String[] args) {
@@ -13,7 +16,8 @@ public class CafeKioskRunner {
         cafeKiosk.add(new Latte());
         System.out.println("카페 키오스크에 라떼 추가 완료");
 
-        cafeKiosk.calculateTotalPrice();
-        System.out.println("총 가격은 " + cafeKiosk.calculateTotalPrice() + "원 입니다.");
+        int totalPrice = cafeKiosk.calculateTotalPrice();
+        System.out.println("총 주문가격 : " + totalPrice);
+        Order order = cafeKiosk.createOrder(LocalDateTime.now());
     }
 }
